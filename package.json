@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "csvjson": "^4.3.3",
+    "glob": "^7.1.2",
+    "jsonfile": "^3.0.0",
+    "pandemonium": "^1.1.0"
+  }
+}
