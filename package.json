@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": "8.x"
+  },
   "dependencies": {
     "csvjson": "^4.3.3",
     "glob": "^7.1.2",
