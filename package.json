@@ -3,6 +3,11 @@
     "csvjson": "^4.3.3",
     "glob": "^7.1.2",
     "jsonfile": "^3.0.0",
-    "pandemonium": "^1.1.0"
+    "koa": "^2.3.0",
+    "koa-router": "^7.2.1",
+    "koa-send": "^4.1.0",
+    "livescript-async": "^1.5.2",
+    "pandemonium": "^1.1.0",
+    "underscore": "^1.8.3"
   }
 }
