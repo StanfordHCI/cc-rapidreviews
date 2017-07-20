@@ -44,22 +44,24 @@ for paper_info in paper_data
     console.log 'misssing file: ' + paper_basefilename
   paper_id_to_info[paper_id] = new_paper_info
 
-prev_available_reviewers = JSON.parse JSON.stringify reviewer_email_list
+#prev_available_reviewers = JSON.parse JSON.stringify reviewer_email_list
 
-get_available_reviewer_pool = ->
+get_available_reviewer_pool = (paper_id) ->
   available_reviewers = []
-  for reviewer_email in prev_available_reviewers
+  for reviewer_email in reviewer_email_list # prev_available_reviewers
     if reviewer_email_to_paper_ids[reviewer_email].length >= 10
       continue
+    if reviewer_email_to_paper_ids[reviewer_email].includes(paper_id)
+      continue
     available_reviewers.push reviewer_email
-  prev_available_reviewers := JSON.parse JSON.stringify available_reviewers
+  #prev_available_reviewers := JSON.parse JSON.stringify available_reviewers
   return JSON.parse JSON.stringify available_reviewers
 
 
 do ->
   for paper_id in paper_id_list
     for reviewer_num from 0 til 31
-      reviewers = underscore.sample(get_available_reviewer_pool(), 1)
+      reviewers = underscore.sample(get_available_reviewer_pool(paper_id), 1)
       for reviewer_email in reviewers
         reviewer_email_to_paper_ids[reviewer_email].push paper_id
 
